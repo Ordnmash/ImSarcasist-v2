@@ -5,4 +5,4 @@
 </p>
 <hr>
 Because there's attention and transformation implemented the model's performance increased dramatically!<br>
-This could be even more better if we shift the vocabs to Tokens instead of single characters
+The vocabs are characters!
