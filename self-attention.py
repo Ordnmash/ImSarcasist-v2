@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 n_embd = 10
 block_size = 10
@@ -15,4 +16,5 @@ k = key(inputV)
 v = value(inputV)
 
 wei = q @ k.T
-attention = wei @ v
+wei = wei / torch.sqrt(torch.tensor(k.shape[0])) # normalizing before softmax
+attention = F.softmax(wei, dim=0) @ v
