@@ -13,3 +13,6 @@ value = nn.Linear(n_embd, n_embd, bias=False)
 q = query(inputV)
 k = key(inputV)
 v = value(inputV)
+
+wei = q @ k.T
+attention = wei @ v
