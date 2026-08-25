@@ -17,4 +17,4 @@ v = value(inputV)
 
 wei = q @ k.T
 wei = wei / torch.sqrt(torch.tensor(k.shape[0])) # normalizing before softmax
-attention = F.softmax(wei, dim=0) @ v
+attention = F.softmax(wei, dim=0) @ v            # note there's no masked fill in this example
