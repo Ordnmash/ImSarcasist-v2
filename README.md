@@ -6,3 +6,4 @@
 <hr>
 Because there's attention and transformation implemented the model's performance increased dramatically!<br>
 The vocabs are characters!
+I'm still in development of this architecture like really!
