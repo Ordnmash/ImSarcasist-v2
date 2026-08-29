@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 n_embd = 10
-block_size = 10
+block_size = 15
 
 inputV = torch.randn((block_size, n_embd), dtype=torch.float32)
 
