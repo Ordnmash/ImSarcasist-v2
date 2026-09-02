@@ -15,6 +15,6 @@ q = query(inputV)
 k = key(inputV)
 v = value(inputV)
 
-wei = q @ k.T
+wei = q @ k.T # add masked fill
 wei = wei / torch.sqrt(torch.tensor(k.shape[0])) # normalizing before softmax
 attention = F.softmax(wei, dim=0) @ v            # note there's no masked fill in this example
