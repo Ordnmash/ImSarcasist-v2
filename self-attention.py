@@ -14,4 +14,7 @@ class SelfAttention(nn.Module):
     q = self.query(x)
     v = self.value(x)
     k = self.key(x)
-    
+    # compute the attention scores
+    sc = q@k.T
+    tril = torch.tril(torch.ones(q.shape))
+    mask = torch.masked_fill(tril==0, float('-inf'))
