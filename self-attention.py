@@ -6,4 +6,6 @@ import torch.nn.functional as F
 class SelfAttention(nn.Module):
   def __init__(self, insize, outsize):
     super().__init__()
-    # attributes of SelfAttention follows
+    self.query = nn.Linear(insize, outsize, bias=False)
+    self.key   = nn.Linear(insize, outsize, bias=False)
+    self.value = nn.Linear(insize, outsize, bias=False)
