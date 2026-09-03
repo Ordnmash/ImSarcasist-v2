@@ -9,3 +9,9 @@ class SelfAttention(nn.Module):
     self.query = nn.Linear(insize, outsize, bias=False)
     self.key   = nn.Linear(insize, outsize, bias=False)
     self.value = nn.Linear(insize, outsize, bias=False)
+
+  def forward(self, x):
+    q = self.query(x)
+    v = self.value(x)
+    k = self.key(x)
+    
