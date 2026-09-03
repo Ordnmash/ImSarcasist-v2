@@ -15,6 +15,9 @@ class SelfAttention(nn.Module):
     v = self.value(x)
     k = self.key(x)
     # compute the attention scores
-    sc = q@k.T
+    sc = (q@k.T) / (k.shape[-1]**0.5) # normalize scores before softmax
     tril = torch.tril(torch.ones(q.shape))
-    mask = torch.masked_fill(tril==0, float('-inf'))
+    wei  = sc.masked_fill(tril==0, float('-inf'))
+    wei  = wei.softmax(dim=-1)
+    att  = wei@v
+    return att # Attention(Q,K,V) = Softmax(qkT/dk)V
