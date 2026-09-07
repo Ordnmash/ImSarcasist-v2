@@ -23,5 +23,5 @@ class SelfAttention(nn.Module):
     return att # Attention(Q,K,V) = Softmax(qkT/dk)V
 
 class MultiheadAttention(nn.Module):
-  def __init__(self, num_head):
+  def __init__(self,num_embd, num_head):
     super().__init__()
