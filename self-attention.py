@@ -21,3 +21,7 @@ class SelfAttention(nn.Module):
     wei  = wei.softmax(dim=-1)
     att  = wei@v
     return att # Attention(Q,K,V) = Softmax(qkT/dk)V
+
+class MultiheadAttention(nn.Module):
+  def __init__(self, num_head):
+    super().__init__()
