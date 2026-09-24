@@ -25,4 +25,4 @@ class SelfAttention(nn.Module):
 class MultiheadAttention(nn.Module):
   def __init__(self,embed_dim, num_heads, bias=True):
     super().__init__()
- # def forward --> Multihead(Q,K,V) = Concat(head1,...headn)Wo
+    self.heads = nn.ModuleList([SelfAttention(embed_dim, embed_dim//num_heads) for _ in range(num_heads)])
